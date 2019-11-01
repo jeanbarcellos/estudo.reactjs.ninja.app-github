@@ -4,13 +4,23 @@ import React, { Component } from 'react'
 import AppContent from './components/app-content'
 
 class App extends Component {
-  constructor() {
+  constructor () {
     super()
-    this.state = {}
+    this.state = {
+      userInfo: null,
+      repos: [],
+      starred: []
+    }
   }
 
-  render() {
-    return <AppContent />
+  render () {
+    return (
+      <AppContent
+        userInfo={this.state.unserInfo}
+        repos={this.state.repos}
+        starred={this.state.starred}
+      />
+    )
   }
 }
 
