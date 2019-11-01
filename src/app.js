@@ -5,7 +5,7 @@ import ajax from '@fdaciuk/ajax'
 import AppContent from './components/app-content'
 
 class App extends Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
       userInfo: null,
@@ -17,11 +17,10 @@ class App extends Component {
     this.handleSearch = this.handleSearch.bind(this)
   }
 
-  handleSearch(e) {
+  handleSearch (e) {
     const value = e.target.value
     const keyCode = e.which || e.keyCode
     const ENTER = 13
-    const target = e.target
 
     if (keyCode === ENTER) {
       this.setState({ isFetching: true })
@@ -50,7 +49,7 @@ class App extends Component {
     }
   }
 
-  getRepos(type) {
+  getRepos (type) {
     return () => {
       const username = this.state.userInfo.login
       ajax()
@@ -66,19 +65,20 @@ class App extends Component {
     }
   }
 
-  getGitHubApiUrl(username, type) {
+  getGitHubApiUrl (username, type) {
     const internalUser = username ? `/${username}` : ''
     const internalType = type ? `/${type}` : ''
     return `https://api.github.com/users${internalUser}${internalType}`
   }
 
-  render() {
+  render () {
     return (
       <AppContent
-        userInfo={this.state.userInfo}
-        repos={this.state.repos}
-        starred={this.state.starred}
-        isFetching={this.state.isFetching}
+        // userInfo={this.state.userInfo}
+        // repos={this.state.repos}
+        // starred={this.state.starred}
+        // isFetching={this.state.isFetching}
+        {...this.state}
         // handleSearch={(e) => this.handleSearch(e)}
         handleSearch={this.handleSearch}
         getRepos={this.getRepos('repos')}
