@@ -18,9 +18,15 @@ class App extends Component {
     const value = e.target.value
     const keyCode = e.which || e.keyCode
     const ENTER = 13
+    const target = e.target
+
+    console.log(target)
+    console.dir(target)
 
     if (keyCode === ENTER) {
-      console.log(e.target.value)
+      target.disabled = true
+
+      console.log(target.value)
 
       ajax()
         .get(this.getGitHubApiUrl(value))
@@ -38,6 +44,10 @@ class App extends Component {
             repos: [],
             starred: []
           })
+        })
+        .always(() => {
+          console.log('evento:', e)
+          target.disabled = false
         })
     }
   }
