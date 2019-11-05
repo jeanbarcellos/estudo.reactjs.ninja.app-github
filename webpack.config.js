@@ -30,7 +30,7 @@ module.exports = validate({
     new DashboardPlugin(),
     new HtmlPlugin({
       title: 'GitHub app',
-      template: path.join(__dirname, 'src', 'html', 'template.html')
+      template: path.join(__dirname, 'src', 'html', 'template-dev.html')
     })
   ],
 
