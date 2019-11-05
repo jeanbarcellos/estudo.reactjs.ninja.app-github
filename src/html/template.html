@@ -5,12 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title><%= htmlWebpackPlugin.options.title %></title>
-  <style></style>
+  <style>
+  <%= compilation.assets['crp.css'].source() %>
+  </style>
 </head>
 <body>
   <div data-js="app"></div>
 
-  <link rel="stylesheet" href="" />
-  <script src=""></script>
+  <!-- Carregar os scripts js automaticametne -->
+  <% htmlWebpackPlugin.files.js.forEach((jsFile) => { %>
+    <script async src="<%= jsFile %>"></script>
+  <% }) %>
+
+  <!-- Carregar os arquivos css automaticamente -->
+  <% htmlWebpackPlugin.files.css.forEach((cssFile) => { %>
+    <% if (cssFile !== 'crp.css') { %>
+  <link rel="stylesheet" href="<%= cssFile %>">
+    <% } %>
+  <% }) %>
+
 </body>
 </html>
