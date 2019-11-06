@@ -2,7 +2,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "jest --coverage",
-    "test:wath": "yarn test -- --watch",
+    "test:watch": "yarn test -- --watch",
     "lint": "standard --verbose | snazzy",
     "lint:watch": "gulp",
     "lint:fix": "standard --fix",
