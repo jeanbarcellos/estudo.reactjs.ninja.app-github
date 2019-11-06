@@ -2,7 +2,11 @@
 
 const centerRule = ({ total, activePage }) => {
   if (activePage - 1 <= 0) {
-    return 0
+    return 1
+  }
+
+  if (activePage === total){
+    return activePage - 2
   }
 
   return activePage - 1
@@ -14,18 +18,25 @@ const pagination = ({ total, activePage }) => {
   }
 
   const visiblePages = 3
-
   let pages = [
     1,
-    ...Array.from(
-      { length: visiblePages },
-      (_, i) => i + centerRule({total, activePage})
-    ),
+    ...Array.from({ length: visiblePages }, (_, i) => i + centerRule({ total, activePage })),
     total
   ]
 
   // retirar numeros duplicados
   pages = pages.filter((page, index, array) => array.indexOf(page) === index)
+
+  let firstPage = pages[0]
+  let secondPage = pages[1]
+
+  if (secondPage === (firstPage + 2)) {
+    pages = [
+      firstPage,
+      firstPage + 1,
+      ...pages.slice(1)
+    ]
+  }
 
   // corrigir exibição dos ultimos e penultimos numeros
   let penultimatePage = pages[pages.length - 2]
@@ -39,6 +50,17 @@ const pagination = ({ total, activePage }) => {
     ]
   }
 
+  firstPage = pages[0]
+  secondPage = pages[1]
+
+  if (secondPage > (firstPage + 2)) {
+    pages = [
+      firstPage,
+      '...',
+      ...pages.slice(1)
+    ]
+  }
+
   penultimatePage = pages[pages.length - 2]
   lastPage = pages[pages.length - 1]
 
@@ -49,7 +71,6 @@ const pagination = ({ total, activePage }) => {
       lastPage
     ]
   }
-
 
   return pages
 }
