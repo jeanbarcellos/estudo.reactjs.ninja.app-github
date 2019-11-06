@@ -46,3 +46,5 @@ test('pagination({ total: 6, activePage: 3 }) should return [1, 2, 3, 4, 5, 6]',
   const result = [1, 2, 3, 4, 5, 6]
   expect(pagination(params)).to.be.deep.equal(result)
 })
+
+// M2#A56 - Paginação - implementação - parte 5
