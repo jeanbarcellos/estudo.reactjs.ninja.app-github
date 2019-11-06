@@ -5,7 +5,7 @@ import Pagination from 'components/pagination'
 
 import './repos.css'
 
-const Repos = ({ className, title, repos }) => (
+const Repos = ({ className, title, repos, handlePagination }) => (
   <div className={`repos-list-container ${className}`}>
     <h2>{title}</h2>
     <ul className={'repos-list'}>
@@ -16,7 +16,7 @@ const Repos = ({ className, title, repos }) => (
       ))}
     </ul>
 
-    <Pagination total={10} activePage={3} />
+    <Pagination total={10} activePage={3} onClick={handlePagination} />
   </div>
 )
 
@@ -30,6 +30,7 @@ Repos.defaultProps = {
 Repos.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string.isRequired,
+  handlePagination: PropTypes.func.isRequired,
   repos: PropTypes.array
 }
 

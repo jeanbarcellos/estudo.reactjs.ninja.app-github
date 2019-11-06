@@ -30,3 +30,8 @@ ul {
 .repos-container :first-child {
   margin-left: 0;
 }
+
+.repos-list-container {
+  width: 50%;
+  float: left;
+}
