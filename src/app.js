@@ -65,7 +65,6 @@ class App extends Component {
       ajax()
         .get(this.getGitHubApiUrl(username, type, page))
         .then(result => {
-
           this.setState({
             [type]: {
               repos: result.map(repo => ({
