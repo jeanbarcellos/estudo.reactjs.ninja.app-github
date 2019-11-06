@@ -90,5 +90,4 @@ Output
     O diretório padrão é o ./dist e o arquivo ./dist/main.js.
     Para configurar, devemos definir um objeto output com as propriedades path e filename no arquivo de configuração do webpack:
 
-
 */
