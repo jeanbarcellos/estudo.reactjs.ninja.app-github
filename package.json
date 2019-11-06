@@ -27,7 +27,7 @@
     "jest-cli": "15",
     "react-hot-loader": "^3.0.0-beta.2",
     "snazzy": "5.0.0",
-    "standard": "^14.3.1",
+    "standard": "8.5.0",
     "standard-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.15.0",
@@ -41,6 +41,10 @@
     "react-dom": "^15.4.2"
   },
   "standard": {
-    "globals": ["test", "it", "describe"]
+    "globals": [
+      "test",
+      "it",
+      "describe"
+    ]
   }
 }
