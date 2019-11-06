@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import pagination from 'utils/pagination'
 import Page from './page'
 
-const Pagination = ({ total, activePage, pageLink, onClick}) => (
+const Pagination = ({ total, activePage, pageLink, onClick }) => (
   <ul>
     {pagination({ total, activePage }).map((page, index) => (
       <li key={index}>
@@ -20,6 +20,7 @@ export default Pagination
 
 Pagination.defaultProps = {
   pageLink: '',
+  activePage: 1
 }
 
 Pagination.propTypes = {
